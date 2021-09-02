@@ -13,16 +13,22 @@
 
 // Написать функцию, которая проверит, возможно ли сделать две строки одинаковыми.
 
-function check(a, b) {
-    arr_a = a.split('').sort();
-    arr_b = b.split('').sort();
-    for (i = 0; i < arr_a.length; i++) {
-        if ((arr_a.length === arr_b.length) && (arr_a[i] === arr_b[i])) {
-                console.log('True');
-            } else {
-                console.log('False');
-            }
-        }
-    }
+function checkArray(a, b) {
+    let bul = true;
 
-check("abcdf", "bcdak");
+    let arrA = a.split('').sort();
+    let arrB = b.split('').sort();
+
+    if (arrA.length === arrB.length) {
+        for (i = 0; i < arrA.length; i++) {   
+        if (arrA[i] !== arrB[i]) {
+            bul = false;
+            break;
+        } 
+    } 
+    } else {
+        bul = false;
+    }
+console.log(bul)
+}
+checkArray("abcdf", "bcdak");

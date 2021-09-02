@@ -5,18 +5,15 @@
 // Вывод: 11
 
 function getMaxSubSum(arr) {
-    let maxSum = 0;
-
+let sum = 0;
     for (let i = 0; i < arr.length; i++) {
-        let sumFixedStart = 0;
-        for (let j = i; j < arr.length; j++) {
-            sumFixedStart += arr[j];
-            maxSum = Math.max(maxSum, sumFixedStart);
+        if (arr[i+1] - arr[i] == 1) {
+            sum += arr[i];
+        } else if (arr[i] - arr[i-1] == 1) {
+            sum += arr[i];
         }
     }
-
-    return maxSum;
+    return sum;
 }
 
-alert(getMaxSubSum([-1, 2, 3, -9])); // 5
-alert(getMaxSubSum([-1, 2, 3, -9, 11])); // 11
+console.log(getMaxSubSum([-1, 10, -9, 5, 6, 7, -10]));
